@@ -20,7 +20,7 @@ public class PhotoView: UIView {
         return imageView
     }()
     public lazy var loadingView: UIActivityIndicatorView! = {
-        let loadingView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        let loadingView = UIActivityIndicatorView(style: .white)
         loadingView.hidesWhenStopped = true
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -42,6 +42,7 @@ public class PhotoView: UIView {
         super.init(frame: frame)
         
         addSubview(imageView)
+        guard let imageView = imageView else { return }
         let constraints = [
             NSLayoutConstraint(item: imageView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: 0),
             NSLayoutConstraint(item: imageView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: 0),
